@@ -1,7 +1,39 @@
+<div style="margin:auto; width:900px">;
+
+
 <?php
 
 require_once "../function.php";
-$sql = "SELECT * FROM tblkategori";
+
+$sql = "SELECT idkategori FROM tblkategori ";
+$result = mysqli_query($koneksi, $sql);
+
+$jumlahdata = mysqli_num_rows($result); 
+
+
+
+$mulai = 0;
+$banyak = 4;
+
+$halaman = ceil ($jumlahdata / $banyak);
+
+for ($i=1; $i <= $halaman ; $1++){
+    echo '< a herf = "?p=.$i."> '.$i.'</a>';
+    echo '$nbsp $nbsp $nbsp';
+}
+
+echo'<br> <br>';
+
+if (isset($_GET['p'])){
+    $p=$_GET['p'];
+    $mulai = ($p * $banyak) - $banyak;
+}else{
+    $mulai =0;
+}
+
+$sql = "SELECT * FROM tblkategori Limit $mulai, $banyak";
+
+
 $result = mysqli_query($koneksi, $sql);
 
 // var_dump($result);
@@ -19,7 +51,7 @@ echo'
 </tr>
 
 ';
-$no=1;
+$no=$mulai;
 
 if ($jumlah > 0){
     while ($row = mysqli_fetch_assoc($result)){
@@ -34,18 +66,7 @@ echo '</table>';
 ?>
 
 
-<tr>
-    <td>1</td>
-    <td>Kategori</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>Kategori</td>
-</tr>
-<tr>
-    <td>3</td>
-    <td>Kategori</td>
-</tr>
+    <h1>belajar</h1>
+</div>
 
 
-</table>
