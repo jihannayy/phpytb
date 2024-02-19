@@ -1,3 +1,16 @@
+<?php
+
+require_once "../dbcontroller.php";
+$db = new DB;
+
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,15 +40,35 @@
             <div class="col-md-3">
                 
                 <ul class="nav flex - column">
-                    <li class="nav-item"><a class="nav-link" herf="#">Kategori</a></li>
-                    <li class="nav-item"><a class="nav-link" herf="#">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" herf="#">Pelanggan</a></li>
-                    <li class="nav-item"><a class="nav-link" herf="#">Order</a></li>
-                    <li class="nav-item"><a class="nav-link" herf="#">Order Detail</a></li>
-                    <li class="nav-item"><a class="nav-link" herf="#">User</a></li>
+                    <li class="nav-item"><a class="nav-link" herf="?f=kategori&m=select">Kategori</a></li>
+                    <li class="nav-item"><a class="nav-link" herf="?f=menu&m=select">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" herf="?f=pelanggan&m=select">Pelanggan</a></li>
+                    <li class="nav-item"><a class="nav-link" herf="?f=order&m=select">Order</a></li>
+                    <li class="nav-item"><a class="nav-link" herf="?f=orderdetail&m=select">Order Detail</a></li>
+                    <li class="nav-item"><a class="nav-link" herf="?f=user&m=select">User</a></li>
                 </ul>
             </div>
             
+            <div class="col-md-9">
+                <?php
+
+                   if (isset($_GET['f']) && isset($_GET['m'])) {
+                    $f=$_GET['f'];
+                    $m=$_GET['m'];
+
+                    $file = '../'.$f.'/'.$m.'.php';
+
+                    require_once $file;
+                   }
+
+
+
+                ?>
+
+            </div>
+
+
+
         </div>
 
         <div class="row mt-5">
