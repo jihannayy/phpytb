@@ -20,7 +20,9 @@
  
 ?>
 
-
+<div class="float-left mr-4">
+    <a class="btn btn-primary" href="?f=kategori&m=insert" role="button">TAMBAH DATA</a>
+</div>
 
 
 <h1> Kategori</h1>
@@ -40,8 +42,8 @@
       <tr>
             <td><?php echo $no++ ?></td>
             <td><?php echo $r['kategori']?></td>
-            <td><?php echo $r['kategori']?></td>
-            <td><?php echo $r['kategori']?></td>
+            <td><a href ="?f=kategori&m=update&id=<?php echo $r['idkategori']?>">update</a></td>
+            <td><a href ="?f=kategori&m=update&id=<?php echo $r['idkategori']?>">update</a></td>
       </tr>
       <?php endforeach ?>
     </tbody>
