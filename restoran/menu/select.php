@@ -10,7 +10,7 @@
    if (isset($_POST['opsi'])) {
     $opsi = $_POST['opsi'];
 
-    $where ="WHERE idkategori= $opsi";
+    $where ="WHERE idkmenu= $opsi";
     
     
 
@@ -18,7 +18,7 @@
     
    } else {
     $opsi=0;
-    $whre="";
+    $where="";
    }
 
 ?>
@@ -30,7 +30,7 @@
   <?php
 
       
-      $row = $db->getALL("SELECT * FROM tblkategori ORDER BY kategori ASC");
+      $row = $db->getALL("SELECT * FROM tblmenu ORDER BY menu ASC");
 
   ?>
 
@@ -39,8 +39,8 @@
   
     <select name="opsi" id="" onechange="this.form.submit()">
      <?php foreach($row as $r): ?>
-     <option <?php is($r['idkategori']==$opsi) echo "selected"  ?>value="<?php echo $r ['idkategori']?>"><?php echo $r['kategori']?>
-     <?php echo $r ['kategori']?>
+     <option <?php is($r['menu']==$opsi) echo "selected"  ?>value="<?php echo $r ['menu']?>"><?php echo $r['menu']?>
+     <?php echo $r ['menu']?>
      </option>
      <?php endforeach ?>
 
@@ -64,8 +64,8 @@
 
 
 <?php
-  $jumlahdata = $db->rowCOUNT("SELECT idkategori FROM tblkategori")
-  $banyak = 4;
+  $jumlahdata = $db->rowCOUNT("SELECT idmenu FROM tblmenu $where");
+  $banyak = 3;
 
   $halaman = ceil ($jumlahdata / $banyak);
 
@@ -92,6 +92,8 @@ $sql = "SELECT * FROM tblmenu $where ORDER BY menu ASC LIMIT $mulai, $banyak";
         <tr>
             <th>No</th>
             <th>Menu</th>
+            <th>Harga</th>
+            <th>Gambar</th>
             <th>Delete</th>
             <th>Update</th>
        </tr>
@@ -104,9 +106,11 @@ $sql = "SELECT * FROM tblmenu $where ORDER BY menu ASC LIMIT $mulai, $banyak";
       
       <tr>
        <td><?php echo $no++ ?></td>
-       <td><?php echo $r['kategori']?></td>
-       <td><a href ="?f=kategori&m=update&id=<?php echo $r['idkategori']?>">update</a></td>
-       <td><a href ="?f=kategori&m=update&id=<?php echo $r['idkategori']?>">update</a></td>
+       <td><?php echo $r['menu']?></td>
+       <td><?php echo $r['harga']?></td>
+       <td><img style="width:40px;" src="../upload/pink.jpg" alt=""><?php echo $r['gambar'] ?></td>
+       <td><a href ="?f=menui&m=update&id=<?php echo $r['idkategori']?>">update</a></td>
+       <td><a href ="?f=menu&m=update&id=<?php echo $r['idkategori']?>">update</a></td>
       </tr>
       <?php endforeach ?>
       <?php } ?>
@@ -119,11 +123,10 @@ $sql = "SELECT * FROM tblmenu $where ORDER BY menu ASC LIMIT $mulai, $banyak";
 <?php
 
 for ($i=1, $i <= $halaman ; $i++){
-    echo '<a herf="?f=kategori&m=select&p='.$i.'">'.$i.'</a>';
+    echo '<a herf="?f=menu&m=select&p='.$i.'">'.$i.'</a>';
     echo '&nbsp &nbsp &nbsp';
 }
 
-
-
-
 ?>
+
+<img src="../upload/pinks.jpg" alt="">
