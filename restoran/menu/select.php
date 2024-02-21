@@ -30,7 +30,7 @@
   <?php
 
       
-      $row = $db->getALL("SELECT * FROM tblmenu ORDER BY menu ASC");
+    $row = $db->getALL("SELECT * FROM tblmenu ORDER BY menu ASC");
 
   ?>
 
@@ -43,12 +43,6 @@
      <?php echo $r ['menu']?>
      </option>
      <?php endforeach ?>
-
-
-
-      
-
-
     </select>
 
 
