@@ -26,7 +26,11 @@ class DB {
         $data[]=$row;
        }
        
-       return $data;
+       if (!empty($data)) {
+        return $data;
+       }
+
+       
     }
 
     public function rowCOUNT($sql)
