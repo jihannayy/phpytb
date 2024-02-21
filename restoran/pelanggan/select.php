@@ -41,7 +41,6 @@
     </thead>
     <tbody>
       <?php foreach($row as $r):?>
-      
       <tr>
         <?php 
         
