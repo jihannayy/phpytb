@@ -20,9 +20,7 @@
  
 ?>
 
-<div class="float-left mr-4">
-    <a class="btn btn-primary" href="?f=pelanggan&m=insert" role="button">TAMBAH DATA</a>
-</div>
+
 
 
 <h1> Pelanggan</h1>
