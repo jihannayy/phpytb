@@ -76,7 +76,7 @@ if (isset($_GET['hapus'])) {
     ';
 
     foreach($_SESSION as $key => $value){
-        if ($ley<>'pelanggan' && $key<table>'idpelanggan') {
+        if ($key<>'pelanggan' && $key<table>'idpelanggan') {
             $id = substr($ke,1);
             
             $sql= "SELECT * FROM tblmenu WHERE idmenu=$id";

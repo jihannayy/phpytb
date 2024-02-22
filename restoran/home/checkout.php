@@ -2,15 +2,25 @@
 
 if (isset($_GET['total'])) {
     $total = $_GET['total'];
-    echo $total;
+    $idorder = idorder();
+    $idpelanggan = $_SESSION['idpelanggan'];
+    $tgl = date('y-m-d');
 
-    echo '<br>';
+    $sql = "SELECT * FROM tblorder WHERE idorder = $idorder";
 
-    echo idorder();
+    $count =$db->rowCOUNT($sql);
 
-    echo '<br>';
+    if ($count == 0) {
+        insertOrder($idorder ,$idpelanggan, $tgl, $total);
+        insertOrderDetail($idorder);
+    }else{
+        insertOrderDetail($idorder);
+    }
+   
 
-    insertOrder(idorder(),$_SESSION['idpelanggan'], '2019-12-01', $total);
+    
+
+    
 
 }
 
@@ -37,6 +47,34 @@ function insertOrder($idorder, $idpelanggan, $tgl, $total){
     $db->runSQL($sql);
 }
 
+
+function insertOrderDetail($idorder=1){
+
+    global $db;
+
+    foreach ($_SESSION as $key => $value) {
+        if ($key<>'pelanggan' && $key<table>'idpelanggan') {
+            $id = substr($ke,1);
+            
+            $sql= "SELECT * FROM tblmenu WHERE idmenu=$id";
+
+            $row=$db->getALL($sql);
+
+            foreach ($row as $key => $value) {
+                $idnenu = $r['idmenu'];
+                $harga = $r['harga'];
+                $sql="INSERT INTO tblorderdetail VALUES ('',$idorder,$idmenu,$value, $harga )";
+                $db->runSQL($sql);
+            }
+
+            echo '<pre>';
+            print_r($row);
+            echo '</pre>';
+
+        }
+    }
+
+}
 
 
 ?>
