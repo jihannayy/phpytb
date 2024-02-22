@@ -37,8 +37,8 @@ if (isset($_SESSION['user'])) {
             <div class="col-md-9">
                 
              <div class="float-right mt - 4" >logout</div>
-             <div class="float-right mt - 4 mr-4" >user</div>
-
+             <div class="float-right mt - 4 mr-4" >user :<a href="?f=user$m=updateuser&id"></a> <?php echo $_SESSION['user']</div>
+              
 
             </div>
 
