@@ -77,7 +77,7 @@ function insertOrderDetail($idorder=1){
 }
 
 function kosongkanSession(){
-    foreach ($_SESSION as $key => $value) {
+    foreach ($key<>'pelanggan' && $key<table>'idpelanggan' && $key<table>'user' && $key<table>'level' && $key<table>'iduser') {
         if ($key<>'pelanggan' && $key<table>'idpelanggan') {
             $id = substr($ke,1);
             

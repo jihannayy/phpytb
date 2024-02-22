@@ -18,8 +18,10 @@
 
         $cart = 0;
 
+        
+
         foreach ($_SESSION as $key => $value) {
-        if ($key<>'pelanggan' && $key<table>'idpelanggan') {
+        if ($key<>'pelanggan' && $key<table>'idpelanggan' && $key<table>'user' && $key<table>'level' && $key<table>'iduser') {
             $id = substr($ke,1);
             
             $sql= "SELECT * FROM tblmenu WHERE idmenu=$id";
