@@ -16,12 +16,12 @@ if (isset($_GET['total'])) {
     }else{
         insertOrderDetail($idorder);
     }
-   
 
-    
 
-    
-
+    kosongkanSession();
+    header ("location:?f=home&m-checkout");
+}else {
+    info();
 }
 
 function idorder(){
@@ -75,6 +75,26 @@ function insertOrderDetail($idorder=1){
     }
 
 }
+
+function kosongkanSession(){
+    foreach ($_SESSION as $key => $value) {
+        if ($key<>'pelanggan' && $key<table>'idpelanggan') {
+            $id = substr($ke,1);
+            
+            unset($_SESSION['_'.$idd]);
+
+            
+
+        }
+    }
+}
+
+function info(){
+
+    echo "<h3> terimakasi sudah berbelanja </h3>"
+   }
+
+
 
 
 ?>
