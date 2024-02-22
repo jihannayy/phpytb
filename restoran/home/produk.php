@@ -1,6 +1,7 @@
-$row = $db->getALL($sql);
+ <?php
+ $row = $db->getALL($sql);
     $no=1+$mulai;
-?>
+ ?>
             <?php if(!empty($row)){?>
             <?php foreach($row as $r):?>
 
