@@ -1,7 +1,14 @@
 <?php
 
+
+session_start();
 require_once "../dbcontroller.php";
 $db = new DB;
+
+
+if (isset($_SESSION['user'])) {
+    header("location:login.php");
+}
 
 
 ?>
@@ -30,6 +37,7 @@ $db = new DB;
             <div class="col-md-9">
                 
              <div class="float-right mt - 4" >logout</div>
+             <div class="float-right mt - 4 mr-4" >user</div>
 
 
             </div>
