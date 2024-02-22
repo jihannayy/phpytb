@@ -55,6 +55,8 @@ if (isset($_GET['hapus'])) {
 
     $total=0;
 
+    global $total;
+
     echo '
     
     <table class="table table-bordered w-700">
@@ -106,8 +108,11 @@ if (isset($_GET['hapus'])) {
     echo '</table>';
    }
 
+   
 
 
 
 
 ?>
+
+<a class="btn btn-primary" href="?f=home&m=checkout&total=<?php echo $total?>" role="button">CHECKOUT</a>
