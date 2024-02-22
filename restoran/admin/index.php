@@ -1,20 +1,13 @@
 <?php
+    session_start();
+    require_once "dbcontroler.php";
+    $db = new DB;
+    $sql = "SELECT * FROM tblkategori ORDER BY kategori";
+    $row = $db->getALL($sql);
 
-
-session_start();
-require_once "../dbcontroller.php";
-$db = new DB;
-
-
-if (isset($_SESSION['user'])) {
-    header("location:login.php");
-}
-
+    
 
 ?>
-
-
-
 
 
 
@@ -23,73 +16,48 @@ if (isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page | Aplikasi Restoran SMK</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-
+    <title>RESTORAN SMENDA | Aplikasi Restoran SMK</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css ">
 </head>
 <body>
     <div class="container">
 
         <div class="row">
             <div class="col-md-3">
-                <h2>Restoran</h2>
-            </div>  
+                <h2>Restoran SMENDA</h2>
+            </div>
+
             <div class="col-md-9">
-                
-             <div class="float-right mt - 4" >logout</div>
-             <div class="float-right mt - 4 mr-4" >user :<a href="?f=user$m=updateuser&id"></a> <?php echo $_SESSION['user']</div>
-              
+                <div class="float-right mt-4">Logout</div>
+                <div class="float-right mt-4 mr-4">Login</div>
+                <div class="float-right mt-4 mr-4">Pelanggan </div>
+                <div class="float-right mt-4 mr-4">Daftar </div>
+
 
             </div>
 
         </div>
-
-        <div class="row mt - 5">
+        <div class="row">
             <div class="col-md-3">
-                
-                <ul class="nav flex - column">
-                    <li class="nav-item"><a class="nav-link" herf="?f=kategori&m=select">Kategori</a></li>
-                    <li class="nav-item"><a class="nav-link" herf="?f=menu&m=select">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" herf="?f=pelanggan&m=select">Pelanggan</a></li>
-                    <li class="nav-item"><a class="nav-link" herf="?f=order&m=select">Order</a></li>
-                    <li class="nav-item"><a class="nav-link" herf="?f=orderdetail&m=select">Order Detail</a></li>
-                    <li class="nav-item"><a class="nav-link" herf="?f=user&m=select">User</a></li>
+                <h3>Kategori</h3>
+                <hr>
+                <?php if(!empty($row)){?>
+                <ul class="nav flex-column">
+                    
+                    <?php foreach($row as $r):?>
+                    <li class="nav-item"><a class="nav-link"href=""><?php echo $r['kategori']?></a></li>
+                    <?php endforeach?>
                 </ul>
+                <?php }?>
             </div>
-            
             <div class="col-md-9">
                 <?php
-
-                   if (isset($_GET['f']) && isset($_GET['m'])) {
-                    $f=$_GET['f'];
-                    $m=$_GET['m'];
-
-                    $file = '../'.$f.'/'.$m.'.php';
-
-                    require_once $file;
-                   }
-
-
-
+                
+                    echo "<h1>DAFTAR MENU</h1>"
+                
                 ?>
-
             </div>
-
-
-
-        </div>
-
-        <div class="row mt-5">
-            <div class="col">
-              <p class="text-center"> 2019 - copyright@smkrevit.com</p>
-
-            </div>
-            
         </div>
     
-        
-
-
-    </div>
 </body>
 </html>
