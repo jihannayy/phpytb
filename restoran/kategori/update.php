@@ -9,16 +9,7 @@ if(isset($_GET['id'])) {
 
 }
 
-
-
 ?>
-
-
-
-
-
-
-
 
 <h1>Update kategori</h1>
 
