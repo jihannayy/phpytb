@@ -2,14 +2,13 @@
     session_start();
     require_once "dbcontroler.php";
     $db = new DB;
+    
     $sql = "SELECT * FROM tblkategori ORDER BY kategori";
     $row = $db->getALL($sql);
 
     
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
